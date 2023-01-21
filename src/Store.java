@@ -3,35 +3,31 @@ import java.lang.reflect.Array;
 import   java.time.*;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Store {
-    private   final  LocalDate dateNow = LocalDate.now();
-    private  final Random random  =  new Random(System.currentTimeMillis());
+      private List<Product> products = new ArrayList<>();
 
-    private  final Random randomTime  = new Random();
-
-      private Product[] products =   new Product[20];
-
-
+    public void add(Product product) {
+        products.add(product);
+    }
 
     public  String  getRandomStoragePlace(){
-        int i = random.nextInt(1);
+        Random random = new Random(System.nanoTime());
+        int i = random.nextInt(2);
         return i == 1 ? "IceBox" : "Showcase";
     }
     public   LocalDate getRandomDeliveryTime () {
-        int i =  1 +  randomTime.nextInt(200);
-         dateNow.minus(i, ChronoUnit.DAYS);
-         return dateNow;
+        Random random = new Random(System.nanoTime());
+        int i =  1 +  random.nextInt(200);
+        LocalDate dateNow = LocalDate.now();
+
+         return dateNow.minusDays(i);
        }
     public  void  doInspection (){
-
-        for (int  i = 0 ;  i < products.length ; i++){
-            products[i] = new Fish();
-        }
-
-        for ( int i = 0 ; i  < products.length  ; i++){
-            System.out.println(products[i]);
+        for (Product p : products){
+            System.out.println(p);
         }
     }
 }

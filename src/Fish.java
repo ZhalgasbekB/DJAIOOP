@@ -1,30 +1,18 @@
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
+import java.util.Objects;
 
-public class Fish   extends  Product {
-       private Store store  =  new Store();
-       private  String place = store.getRandomStoragePlace();
-       private LocalDate l =  store.getRandomDeliveryTime();
-       private LocalDate l1 =  LocalDate.now();
-
-        public  Fish  (){
-            super("Fish" , 20 );
+public class Fish extends  Product {
+        public  Fish(String name, double storageLifeDays, LocalDate deliveredAt, String place){
+            super(name, storageLifeDays,  deliveredAt, place);
         }
 
-    @Override
-       public  boolean isFresh (){
-            if (l.plusDays(20).isAfter(l1)){
-               String place = store.getRandomStoragePlace();
-               if (place != "IceBox"){
-                   return  l.minusDays(16).isAfter(l1) ? true : false ;
-               }
-               else {
-                   return true;
-               }
-           }
-           else {
-               return false;
-           }
+        @Override
+       public  boolean isFresh(){
+            LocalDate l = getDeliveredAt();
+            LocalDate l1 = LocalDate.now();
+            int lifeDays = (int) (Objects.equals(getPlace(), "IceBox")
+                    ? getStorageLifeDays() : getStorageLifeDays() / 5);
+            return l.plusDays(lifeDays).isAfter(l1);
         }
 
 
