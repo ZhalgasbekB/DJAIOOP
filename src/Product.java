@@ -50,6 +50,6 @@ public  abstract   class Product  {
 
     @Override
     public String toString() {
-        return "[" + name + " | " + deliveredAt + " | " + place + " | " + storageLifeDays + " | " + isFresh() + "]";
+        return "[" + name + " + " + deliveredAt + " + " + place + " + " + storageLifeDays + " + " + isFresh() + "]";
     }
 }

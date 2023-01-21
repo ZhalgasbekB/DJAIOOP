@@ -18,6 +18,6 @@ public class Fish extends  Product {
 
     @Override
     public String toString() {
-        return isFresh() + "  " + super.toString();
+        return  super.toString();
     }
 }

@@ -1,8 +1,5 @@
-import java.awt.*;
-import java.lang.reflect.Array;
-import   java.time.*;
-import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
+  import   java.time.*;
+ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -22,12 +19,14 @@ public class Store {
         Random random = new Random(System.nanoTime());
         int i =  1 +  random.nextInt(200);
         LocalDate dateNow = LocalDate.now();
-
          return dateNow.minusDays(i);
        }
     public  void  doInspection (){
+        System.out.println( "Product" +  " | "+  " Delivered at " + " | " + "Storage " + " |  " + "S. life days" +  " | " + " Fresh");
+        System.out.println("============================================");
         for (Product p : products){
             System.out.println(p);
         }
+        System.out.println("============================================");
     }
 }
