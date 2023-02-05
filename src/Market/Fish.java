@@ -1,7 +1,11 @@
+package Market;
+
+import Market.Product;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Fish extends  Product {
+public class Fish extends Product {
         public  Fish(String name, double storageLifeDays, LocalDate deliveredAt, String place){
             super(name, storageLifeDays,  deliveredAt, place);
         }
@@ -10,8 +14,7 @@ public class Fish extends  Product {
        public  boolean isFresh(){
             LocalDate l = getDeliveredAt();
             LocalDate l1 = LocalDate.now();
-            int lifeDays = (int) (Objects.equals(getPlace(), "IceBox")
-                    ? getStorageLifeDays() : getStorageLifeDays() / 5);
+            int lifeDays = (int) (Objects.equals(getPlace(), "IceBox") ? getStorageLifeDays() : getStorageLifeDays() / 5);
             return l.plusDays(lifeDays).isAfter(l1);
         }
 

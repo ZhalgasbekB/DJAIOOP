@@ -1,7 +1,10 @@
-import java.time.LocalDate;
-import java.util.Objects;
+package Market;
 
-public class Corn extends   Product{
+import Market.Product;
+
+import java.time.LocalDate;
+
+public class Corn extends Product {
     public  Corn (String name , double  storageLifeDays , LocalDate deliveredAt ,  String place){
         super(name, storageLifeDays , deliveredAt  , place);
     }

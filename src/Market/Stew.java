@@ -1,5 +1,8 @@
+package Market;
+
+import Market.Product;
+
 import java.time.LocalDate;
-import java.util.Objects;
 
 public class Stew extends Product {
     public  Stew (String name , double  storageLifeDays , LocalDate deliveredAt , String place){

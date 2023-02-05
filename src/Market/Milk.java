@@ -1,4 +1,7 @@
-import java.awt.event.PaintEvent;
+package Market;
+
+import Market.Product;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
